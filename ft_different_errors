@@ -1,0 +1,32 @@
+def garden_operations():
+    print("=== Garden Error Types Demo ===\n")
+    
+    try:
+        print("Testing ValueError...")
+        VE = "abc"
+        VE_int = int(VE)
+    except ValueError as ve:
+        print(f"Caught ValueError: invalid literal for int()\n")
+    
+    try:
+        print("ZeroDivisionError test...")
+        result = 10 / 0
+    except ZeroDivisionError as zde:
+        print(f"Caught ZeroDivisionError: division by zero\n")
+    
+    try:
+        print("Tesing FileNotFoundError...")
+        with open("missing.txt", "r") as file:
+            content = file.read()
+    except FileNotFoundError as fnfe:
+        print(f"Caught FileNotFoundError: No such file 'missing.txt'\n")
+    
+    try:
+        print("Testing KeyError...")
+        d = {"plant": "rose", "color": "red"}
+        value = d["missing_plant"]
+    except KeyError as ke:
+        print(f"Caught KeyError: 'missing_plant'\n")
+        
+if __name__ == "__main__":
+    garden_operations()
