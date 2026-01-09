@@ -1,0 +1,31 @@
+class EmptyListError(Exception):
+    pass
+def check_list(lst):
+    if not lst:
+        raise EmptyListError("Error: Cannot water None - invalid plant!")
+
+def watering_system(plant_list):
+    error_found = False
+    print("=== Garden Watering System ===")
+    print("Testing watering system...")
+    print("Opening water system")
+    try:
+        check_list(plant_list)
+        for plant in plant_list:
+            print(f"Watering {plant}")
+    except EmptyListError as e:
+            error_found = True
+            
+    finally:
+        print(f"Closing watering system (cleanup)")
+        if error_found:
+            print("Cleanup always happens, even with errors!")
+        else:
+            print("Watering completed successfully!")
+
+if __name__ == "__main__":
+    plants = ["tomato", "lettuce", "carrots"]
+    watering_system(plants)
+
+    bad_plants = []
+    watering_system(bad_plants)
