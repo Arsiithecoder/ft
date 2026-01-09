@@ -1,0 +1,16 @@
+class SeedInventory:
+    def __init__(self, seed, quantity, unit_of_measure):
+        self.seed = seed
+        self.quantity = quantity
+        self.unit_of_measure = unit_of_measure
+        capitalize_seed = seed.capitalize()
+        print(f"{capitalize_seed} seeds: {quantity} {unit_of_measure} available")
+
+def ft_seed_inventory():
+    seed = input("Enter seed type: ")
+    quantity = int(input("Enter quantity of seeds: "))
+    unit_of_measure = input("Enter unit of measure (e.g., packets, grams): ")
+    inventory = SeedInventory(seed, quantity, unit_of_measure)
+
+if __name__ == "__main__":
+    ft_seed_inventory()
